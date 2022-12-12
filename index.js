@@ -14,3 +14,20 @@ const pagination = document.querySelector('[data-js="pagination"]');
 const maxPage = 1;
 const page = 1;
 const searchQuery = "";
+
+const url = "https://rickandmortyapi.com/api/character";
+
+export async function fetchCharacters() {
+  try {
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+    } else {
+      console.error("Ooops");
+    }
+  } catch (error) {
+    console.error("ERROR occurred");
+  }
+}
+fetchCharacters();
