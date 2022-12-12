@@ -1,7 +1,5 @@
 import { cardContainer } from "../../index.js";
 export function createCharacterCard(data) {
-  console.log(data);
-
   const cardItem = document.createElement("li");
   cardItem.classList.add("card");
   cardItem.setAttribute("data-js", "list-item");
