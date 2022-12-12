@@ -1,3 +1,5 @@
+import { createCharacterCard } from "./components/card/card.js";
+
 export const cardContainer = document.querySelector(
   '[data-js="card-container"]'
 );
@@ -16,18 +18,19 @@ const page = 1;
 const searchQuery = "";
 
 const url = "https://rickandmortyapi.com/api/character";
-
 export async function fetchCharacters() {
   try {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
+      createCharacterCard(data, 0);
+      //console.log(data);
+      return;
     } else {
       console.error("Ooops");
     }
   } catch (error) {
-    console.error("ERROR occurred");
+    console.error("ERROR occurred" + error.message);
   }
 }
 fetchCharacters();
